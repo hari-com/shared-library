@@ -9,7 +9,7 @@ node {
    
        checkout scm        
    }
-    stage ('Test') {
+    stage ('Clean Test') {
 
        sh "mvn clean -DskipTests=true"
 
@@ -24,7 +24,7 @@ node {
    
    //Running build with skipping tests and deploying artifacts to .M2 repository
    else {
-    stage ('Install') {
+    stage ('Clean Install') {
         //rtMaven.run pom: 'pom.xml', goals: 'install -DskipTests=true', buildInfo: buildInfo
         sh "mvn clean install -DskipTests=true"
        } 
